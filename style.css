@@ -1,0 +1,51 @@
+:root {
+    --main-diamond-background: blueviolet;
+    --secondary-diamond-background: white;
+}
+body {
+    background: black;
+    margin: 100px auto;
+    transform: scale(0.7);
+}
+.diamond {
+    display: grid;
+    margin:0 auto;
+    width: 50%;
+    height: 100%;
+    transform: rotate(45deg);
+    
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-template-areas:
+    "one two three"
+    "four five six"
+    "seven eight nine";
+}
+.one, .two, .three, .four, .six, .seven, .eight, .nine {
+    grid-area: one, two, three, four, six, seven, eight, nine;
+    background: var(--main-diamond-background);
+    animation: colorchange;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+.five {
+    grid-area: five;
+    background: var(--secondary-diamond-background);
+    animation: colorchangeit;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+@keyframes colorchange {
+    0%   {background-color: mediumpurple;}
+    25%  {background-color: mediumorchid;}
+    50%  {background-color: plum;}
+    100% {background-color: white;}
+  }
+@keyframes colorchangeit {
+    0%   {background-color: plum;}
+    25%  {background-color: mediumorchid;}
+    50%  {background-color: mediumpurple;}
+    100% {background-color: blueviolet;}
+  }
